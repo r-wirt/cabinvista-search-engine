@@ -1,3 +1,0 @@
-[scrapy]
-settings = proto_spider.settings
-
