@@ -1,0 +1,450 @@
+@import url('https://fonts.googleapis.com/css?family=EB+Garamond&display=swap');
+
+div, p, a, span {
+  font-family: 'Eb Garamond', sans-serif;
+}
+
+/***Navigation Bar***/
+
+
+.top-descript{
+
+
+  text-align: center;
+  color: rgb(63, 63, 63);
+  padding-bottom:2px;
+}
+
+.home-title{
+
+  text-align: center;
+  font-size: 40px;
+  background-color: rgba(29, 132, 45,0.8);
+  box-shadow: 0px 0px 4px 1px grey;
+/*  background: rgba(1, 100, 51, 1.0);
+background: -webkit-linear-gradient(top left, rgba(1, 100, 51, 1.0), rgba(178, 255, 167, 1.0));
+background: -moz-linear-gradient(top left, rgba(1, 100, 51, 1.0), rgba(178, 255, 167, 1.0));
+background: linear-gradient(to bottom right, rgba(1, 100, 51, 1.0), rgba(178, 255, 167, 1.0));*/
+  color: white;
+  height: 60px;
+}
+
+.home-title a{
+  color:white;
+}
+
+.searchbar{
+  margin-bottom:-15px;
+}
+
+input {
+  text-align: center;
+
+}
+
+input::placeholder { /* Most modern browsers support this now. */
+   color:   rgb(63, 63, 63);
+}
+
+
+input::-webkit-input-placeholder {
+  color: rgb(63, 63, 63);
+
+   text-align: center;
+}
+
+input:-moz-placeholder { /* Firefox 18- */
+  color: rgb(63, 63, 63);
+   text-align: center;
+}
+
+input::-moz-placeholder {  /* Firefox 19+ */
+  color: rgb(63, 63, 63);
+   text-align: center;
+}
+
+input:-ms-input-placeholder {
+  color: rgb(63, 63, 63);
+   text-align: center;
+}
+
+input::-ms-input-placeholder { /* Microsoft Edge */
+   color: rgb(63, 63, 63);
+}
+
+
+
+
+.navigation-bar {
+
+  color: rgb(63, 63, 63);
+  padding-top: 3px;
+  text-align: center;
+  height: 30px;
+
+
+  border-bottom: rgb(224, 224, 224) solid 1px;
+
+  margin-top: 0px;
+  margin-bottom: 10px;
+
+}
+
+.navigation-bar a{
+  color: rgb(63, 63, 63);;
+}
+
+.navigation-bar span{
+
+  margin-right: 50px;
+
+}
+
+
+/***Midsite CSS***/
+
+.eco-intro p {
+  color:rgb(152, 152, 152);
+  font-size:20px;
+  font-weight:bold;
+  padding-top: 10px;
+  padding-bottom:10px;
+  width: 70%;
+  margin:auto;
+  text-align: center;
+
+}
+
+.define-certification{
+
+    box-shadow: 0px 0px 5px rgb(63, 63, 63);
+    text-align: center;
+
+
+    color: rgb(63, 63, 63);
+
+
+    padding:15px;
+}
+
+.define-certification span{
+  padding-top: 20px;
+  font-size: 20px;
+}
+
+.two-certifis{
+
+  padding-top: 5px;
+  display:grid;
+  grid-template-columns: 50% 50%;
+
+}
+
+
+.define-grngrd{
+
+  padding:15px;
+  text-align:center;
+  border-right: 1px solid rgb(224, 224, 224);
+  height:200px;
+
+}
+
+
+.define-grngrd p, .define-fsc p{
+
+  margin-top:10px;
+}
+
+.define-grngrd a, .define-fsc a{
+
+  text-decoration: underline;
+  color: rgb(63, 63, 63);
+}
+
+.define-fsc{
+  padding:15px;
+  text-align: center;
+  height:200px;
+
+
+}
+
+
+
+.fact-grngrd, .fact-fsc{
+  text-align: center;
+  padding:10px;
+
+
+
+}
+
+.fact-grngrd {
+   color: rgba(29, 132, 45);
+   border-bottom: 1px solid rgb(224, 224, 224);
+
+}
+
+.fact-fsc {
+
+  /*color: rgba(156, 114, 82);*/
+  color: rgb(133, 94, 66);
+
+}
+
+.fact-grngrd p, .fact-fsc p{
+  width:70%;
+  margin:auto;
+  font-size:17px;
+}
+
+/***Menu Hover CSS***/
+
+
+
+.mega-menu-catg{
+
+  display:grid;
+  color: rgb(63, 63, 63);
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  position:absolute;
+  border-bottom: 1px solid rgb(63, 63, 63);
+  background-color:white;
+  width:100%;
+  height:145px;
+
+}
+
+
+
+.mega-menu-catg a, .mega-menu-babykids a, .mega-menu-retailer a, .mega-menu-babykids-catg a{
+  color: rgb(63, 63, 63);
+}
+
+.mega-menu-babykids, .mega-menu-babykids-catg{
+
+   color: rgb(63, 63, 63);
+   height:145px;
+   background-color: white;
+   text-align: center;
+   position:absolute;
+   width: 100%;
+   font-size:15px;
+   border-bottom: 1px solid rgb(63, 63, 63);
+}
+
+.mega-menu-babykids p{
+
+  height: 15px;
+
+}
+
+.mega-menu-babykids p:hover, .mega-menu-retailer p:hover, .mega-menu-babykids-catg p:hover {
+
+  text-decoration: underline rgb(63, 63, 63);
+
+}
+
+
+
+.mega-menu-retailer{
+
+  border-bottom: 1px solid rgb(63, 63, 63);
+  padding:20px;
+  color: rgb(63, 63, 63);
+  text-align: center;
+  font-size: 15px;
+  background-color: white;
+
+
+  position:absolute;
+  height:145px;
+  width:100%;
+
+}
+
+.mega-menu-retailer div{
+  width:200px;
+  margin:auto;
+  display:inline-block;
+
+}
+
+
+.mega-menu-retailer p{
+  margin-bottom:4px;
+}
+
+
+
+.menu-bedroom, .menu-livingroom, .menu-kitchen, .menu-storage, .menu-outdoor{
+  text-align: center;
+
+  color: rgb(63, 63, 63);
+}
+
+.mega-menu-babykids span, .menu-bedroom span, .menu-livingroom span, .menu-kitchen span, .menu-storage span, .menu-outdoor span{
+
+  font-size: 15px;
+
+  text-decoration: underline;
+  height: 15px;
+}
+
+
+.menu-bedroom p, .menu-livingroom p, .menu-kitchen p, .menu-storage p, .menu-outdoor p{
+  margin-top:5px;
+  font-size: 15px;
+  height: 15px;
+}
+.menu-bedroom p:hover, .menu-livingroom p:hover, .menu-kitchen p:hover, .menu-storage p:hover, .menu-outdoor p:hover, .mega-menu-retailer span:hover{
+  text-decoration: underline rgba(29, 132, 45,0.9);
+}
+
+.retailers{
+
+  color: rgb(63, 63, 63);
+  text-align:center;
+  border-bottom: rgb(224, 224, 224) solid 1px;
+  padding-bottom:10px;
+  margin-top:7px;
+}
+
+.retailers p{
+  font-size: 19px;
+  margin-bottom: 10px;
+}
+
+.retailers span{
+
+  margin-right:10px;
+
+
+}
+
+.retailers a{
+  text-decoration: underline;
+  color: rgb(63, 63, 63);
+}
+
+
+/***Product Card CSS***/
+
+.product-card{
+
+  width:300px;
+  height:345px;
+  padding-left: 5px;
+  padding-top: 10px;
+  margin-bottom:10px;
+  border: solid 1px rgb(224, 224, 224);
+
+}
+
+.test-product-section{
+   height: 85px;
+
+}
+
+.test-store-name{
+
+  font-size: 14px;
+  font-style: italic;
+
+}
+
+.test-product-title{
+  font-size:15px;
+  line-height: 20px;
+
+}
+
+.test-product-title a{
+  color:rgb(63, 63, 63);
+
+}
+
+.test-certification{
+  color:green;
+  line-height: 15px;
+
+}
+.test-certification a{
+  color:green;
+}
+
+.test-certification a:hover{
+  text-decoration: underline green;
+}
+
+#test-product-image{
+
+  height:225px;
+
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+
+
+}
+
+.tippy-tooltip.certification-theme {
+  /* Your styling here. Example: */
+  background-color: white;
+  border:1px solid rgb(63, 63, 63);
+  color: rgb(63, 63, 63);
+  width:300px;
+}
+
+
+/****Product Preview CSS****/
+
+.shop-by-category{
+
+  color: rgb(63, 63, 63);
+
+}
+.shop-by-category-title{
+  font-size: 23px;
+  margin-top: 10px;
+  margin-left:10px;
+  margin-bottom: 0px;
+
+}
+
+.shop-by-category-title a:hover{
+  text-decoration: rgb(63, 63, 63) underline;
+}
+
+.shop-by-category-title a{
+  color: rgb(63, 63, 63);
+}
+
+.shop-preview{
+  margin-left: 10px;
+  display:grid;
+  grid-template-columns: 25% 25% 25% 25%;
+
+}
+
+.shop-preview span{
+  margin-top: 10px;
+}
+
+/****Articles Regarding Eco Furniture & Certification CSS***/
+
+.articles-title{
+  text-align: center;
+  font-size: 20px;
+  color: rgb(63, 63, 63);
+}
+
+.article-container {
+  margin-top:30px;
+  margin-left: 20px;
+  font-size: 20px;
+  color: rgb(63, 63, 63);
+  line-height: 25px;
+
+}

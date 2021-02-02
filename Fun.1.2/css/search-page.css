@@ -1,0 +1,176 @@
+ul {
+  list-style: none;
+  margin:0px;
+}
+
+label{
+  color: rgb(63, 63, 63);
+}
+
+
+/****highlight-green****/
+
+.highlight-green{
+    color:green;
+    text-decoration: underline;
+}
+
+
+
+.number-of-results-found-ctg{
+  color: rgb(63, 63, 63);
+  font-size:25px;
+
+}
+
+.phrase-results-searchbar{
+
+  font-size: 25px;
+  height: 20px;
+
+
+}
+
+.phrase-results-menu-catg{
+  font-size: 25px;
+  color: rgb(63, 63, 63);
+  margin-bottom: 0px;
+
+}
+
+.phrase-results-menu-catg > p {
+  color:red;
+}
+
+
+.price-sorting{
+  margin-bottom: 10px;
+  text-align: right;
+}
+
+.price-sorting-option{
+  margin-left:10px;
+}
+.price-sorting-option a {
+  color: rgb(63, 63, 63);
+}
+
+.price-sorting-option.is-active{
+  border-bottom:1px solid green;
+}
+
+
+.side-bar{
+  float:left;
+  margin-left: 40px;
+  margin-top: 135px;
+  color: rgb(63, 63, 63);
+  width:200px;
+  height:700px;
+
+}
+
+.product-results{
+
+  color: rgb(63, 63, 63);
+  float:left;
+  width:1000px;
+
+}
+
+.product-card-results{
+  display:grid;
+  grid-template-columns: 33.33% 33.33% 33.33%;
+}
+
+.test-results-for-searchbar{
+  font-size: 30px;
+  color: rgb(63, 63, 63);
+
+}
+
+
+
+
+
+/*****PAGE BLURRING****/
+
+.page-blur {
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+  background-color: white;
+}
+
+/***CONTENT FINISHED****/
+.test-content-finished{
+
+  font-size: 20px;
+  text-align: center;
+  padding-bottom: 10px;
+
+}
+
+
+.shop-baby-and-kids-header-test{
+  font-size:35px;
+
+}
+
+/*****Page Blurring****/
+
+.page-blur {
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+  background-color: white;
+}
+
+/*****Loading Spinners*****/
+
+.spinner{
+    z-index: 30;
+    width: 80px;
+    height: 80px;
+
+    border: 2px solid #f3f3f3;
+    border-top:3px solid green;
+    border-radius: 100%;
+
+    position: absolute;
+    top:20%;
+    bottom:0;
+    left:50%;
+    margin: auto;
+
+    animation: spin 1s infinite linear;
+}
+
+.bottom-spinner{
+
+    z-index: 30;
+    width: 80px;
+    height: 80px;
+    border: 2px solid #f3f3f3;
+    border-top:3px solid green;
+    border-radius: 100%;
+    position: absolute;
+    left:50%;
+    margin: auto;
+    margin-bottom:10px;
+
+    animation: spin 1s infinite linear;
+}
+
+
+@keyframes spin {
+    from{
+        transform: rotate(0deg);
+    }to{
+        transform: rotate(360deg);
+    }
+}

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+  <html>
+  <!--Header, Menus, SearchBar------>
+        <div class="top-descript">
+          <text>A sustainable furniture search engine, dedicated to identifying healthy and eco-friendly household goods on the market.</text>
+         </div>
+         <div  ng-mouseenter="homeControl.showFurnitureByCatgMenu = false; homeControl.showBabyKidsMenu = false; homeControl.showRetailerMenu = false" class="home-title">
+           <span><a href="#">cabin vista</a><span>
+         </div>
+         <div ng-mouseenter="homeControl.showFurnitureByCatgMenu = false; homeControl.showBabyKidsMenu = false; homeControl.showRetailerMenu = false" class="searchbar">
+           <form ng-submit="homeControl.searchBarQueryFromHome()">
+             <input ng-model="homeControl.userQueryFromHome" type="text" placeholder="Search furniture type, product, brand, etc.">
+           </form>
+         </div>
+         <div class="navigation-bar">
+           <span ng-mouseenter="homeControl.showFurnitureByCatgMenu = true; homeControl.showBabyKidsMenu = false; homeControl.showRetailerMenu = false">Category</span>
+           <span ng-mouseenter="homeControl.showRetailerMenu = true; homeControl.showFurnitureByCatgMenu = false; homeControl.showBabyKidsMenu = false">Retailer</span>
+           <span ng-mouseenter="homeControl.showBabyKidsMenu = true; homeControl.showFurnitureByCatgMenu = false; homeControl.showRetailerMenu = false"
+                 ng-click="homeControl.switchToKidsFurniture(homeControl.furnitureMenuOptns.kidsFurniture.allKidsFurniture)">Shop Baby & Kids</span>
+
+           <span ng-click="homeControl.toRelevantArticles()" ng-mouseenter="homeControl.showFurnitureByCatgMenu = false; homeControl.showBabyKidsMenu = false; homeControl.showRetailerMenu = false"><a>Info</a></span>
+        </div>
+
+        <div class="mega-menu-catg" ng-show="homeControl.showFurnitureByCatgMenu" ng-mouseleave="homeControl.showFurnitureByCatgMenu= false">
+          <div class="menu-bedroom">
+              <span><a ng-click="homeControl.searchMenuFromHome(homeControl.furnitureMenuOptns.bedroom.allBedroom)">Bedroom</a></span>
+              <p><a ng-click="homeControl.searchMenuFromHome(homeControl.furnitureMenuOptns.bedroom.beds)">Beds</a></p>
+              <p><a ng-click="homeControl.searchMenuFromHome(homeControl.furnitureMenuOptns.bedroom.dressers)">Dressers & Armoires</a></p>
+              <p><a ng-click="homeControl.searchMenuFromHome(homeControl.furnitureMenuOptns.bedroom.nightstands)">Nightstands</a></p>
+              <p><a ng-click="homeControl.searchMenuFromHome(homeControl.furnitureMenuOptns.bedroom.desks)">Desks</a></p>
+          </div>
+
+          <div class="menu-livingroom">
+            <span><a ng-click="homeControl.searchMenuFromHome(homeControl.furnitureMenuOptns.livingroom.allLivingroom)">Living Room</a></span>
+            <p><a ng-click="homeControl.searchMenuFromHome(homeControl.furnitureMenuOptns.livingroom.sofasAndSectionals)">Sofas & Sectionals</a></p>
+            <p><a ng-click="homeControl.searchMenuFromHome(homeControl.furnitureMenuOptns.livingroom.coffeeTables)">Coffee Tables</a></p>
+            <p><a ng-click="homeControl.searchMenuFromHome(homeControl.furnitureMenuOptns.livingroom.accentChairsAndOttomans)">Accent Chairs & Ottomans</a></p>
+          </div>
+
+          <div class="menu-kitchen">
+            <span><a ng-click="homeControl.searchMenuFromHome(homeControl.furnitureMenuOptns.dining.allDining)">Dining & Kitchen</a></span>
+            <p><a ng-click="homeControl.searchMenuFromHome(homeControl.furnitureMenuOptns.dining.allDining)">All Dining & Kitchen</a></p>
+          </div>
+
+          <div class="menu-storage">
+            <span><a ng-click="homeControl.searchMenuFromHome(homeControl.furnitureMenuOptns.storage.allStorage)">Storage</a></span>
+            <p><a ng-click="homeControl.searchMenuFromHome(homeControl.furnitureMenuOptns.storage.mediaConsoles)">Media Consoles</a></p>
+            <p><a ng-click="homeControl.searchMenuFromHome(homeControl.furnitureMenuOptns.storage.shelves)">Shelves</a></p>
+            <p><a ng-click="homeControl.searchMenuFromHome(homeControl.furnitureMenuOptns.storage.cabinets)">Cabinets</a></p>
+          </div>
+
+          <div class="menu-outdoor">
+            <span><a ng-click="homeControl.searchMenuFromHome(homeControl.furnitureMenuOptns.outdoor.allOutdoor)">Outdoor</a></span>
+            <p><a ng-click="homeControl.searchMenuFromHome(homeControl.furnitureMenuOptns.outdoor.allOutdoor)">Outdoor Tables & Chairs</a></p>
+          </div>
+        </div>
+
+      <div class="mega-menu-babykids" ng-show="homeControl.showBabyKidsMenu" ng-mouseleave="homeControl.showBabyKidsMenu = false">
+        <span><a ng-click="homeControl.switchToKidsFurniture(homeControl.furnitureMenuOptns.kidsFurniture.allKidsFurniture)">All Baby & Kids Furniture</a></span>
+        <p><a ng-click="homeControl.switchToKidsFurniture(homeControl.furnitureMenuOptns.kidsFurniture.bedsAndCribs)">Beds & Cribs</a></p>
+        <p><a ng-click="homeControl.switchToKidsFurniture(homeControl.furnitureMenuOptns.kidsFurniture.dressers)">Dressers</a></p>
+        <p><a ng-click="homeControl.switchToKidsFurniture(homeControl.furnitureMenuOptns.kidsFurniture.nightstands)">Nighstands</a></p>
+        <p><a ng-click="homeControl.switchToKidsFurniture(homeControl.furnitureMenuOptns.kidsFurniture.desks)">Desks</a></p>
+      </div>
+
+      <div class="mega-menu-retailer" ng-show="homeControl.showRetailerMenu" ng-mouseleave="homeControl.showRetailerMenu =false">
+        <div>
+         <p><a ng-click="homeControl.searchMenuFromHome(homeControl.furnitureMenuOptns.searchByRetailer.westElm)">west elm</a></p>
+         <p><a ng-click="homeControl.searchMenuFromHome(homeControl.furnitureMenuOptns.searchByRetailer.potteryBarn)">Pottery Barn</a></p>
+         <p><a ng-click="homeControl.switchToKidsFurniture(homeControl.furnitureMenuOptns.searchByRetailer.potteryBarnKids)">Pottery Barn Kids</a></p>
+       </div>
+       <div>
+         <p><a ng-click="homeControl.switchToKidsFurniture(homeControl.furnitureMenuOptns.searchByRetailer.pbTeen)">Pbteen</a></p>
+         <p><a ng-click="homeControl.searchMenuFromHome(homeControl.furnitureMenuOptns.searchByRetailer.williamsSonoma)">Williams Sonoma</a></p>
+         <p><a ng-click="homeControl.searchMenuFromHome(homeControl.furnitureMenuOptns.searchByRetailer.medley)">medley</a></p>
+       </div>
+       <div>
+         <p><a ng-click="homeControl.searchMenuFromHome(homeControl.furnitureMenuOptns.searchByRetailer.aptTwoB)">apt2b</a></p>
+         <p><a ng-click="homeControl.switchToKidsFurniture(homeControl.furnitureMenuOptns.searchByRetailer.davinciBaby)">Davinci Baby</a></p>
+         <p><a ng-click="homeControl.searchMenuFromHome(homeControl.furnitureMenuOptns.searchByRetailer.oneKingsLane)">One Kings Lane</a></p>
+       </div>
+      </div>
+
+
+  <!--End of Header, Menus, SearchBar------>
+
+<div class="articles-title">
+  <span>Relevant Articles regarding Eco-Furniture</span>
+</div>
+
+
+<div>
+  <div class="article-container">
+    <span>What to Look for When Shopping for Sustainable Furniture</span>
+    <br>
+    <a href="https://www.scientificamerican.com/article/sustainable-furniture/" target="_blank">
+      https://www.scientificamerican.com/article/sustainable-furniture/
+    </a>
+    <br>
+    <span>at Scientific American</span>
+  </div>
+  <div class="article-container">
+    <span>What we do: Projects & Initiatives</span>
+    <br>
+    <a href="https://ic.fsc.org/en/what-is-fsc/what-we-do" target="_blank">
+      https://ic.fsc.org/en/what-is-fsc/what-we-do
+    </a>
+    <br>
+    <span>at Forest Stewardship Council</span>
+  </div>
+  <div class="article-container">
+    <span>Forest Habitat: Overview, Species, Why They Matter...</span>
+    <br>
+    <a href="https://www.worldwildlife.org/habitats/forest-habitat " target="_blank">
+      https://www.worldwildlife.org/habitats/forest-habitat
+    </a>
+    <br>
+    <span>at World Wildlife Fund</span>
+  </div>
+  <div class="article-container">
+    <span>Greenguard Certification: Testing Procedures</span>
+    <br>
+    <a href="http://greenguard.org/en/CertificationPrograms/CertificationPrograms_certificationProcess/CertificationPrograms_testingProcedures.aspx" target="_blank">
+      http://greenguard.org/en/CertificationPrograms/CertificationPrograms_certificationProcess/CertificationPrograms_testingProcedures.aspx
+    </a>
+    <br>
+    <span>at Greenguard Certification from UL Environment</span>
+  </div>
+
+</div>
+
+
+
+  </html>

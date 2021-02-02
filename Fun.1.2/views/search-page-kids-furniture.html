@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+  <html>
+      <!----Header, Menus, SearchBar------>
+            <div class="top-descript">
+              <text>A sustainable furniture search engine, dedicated to identifying healthy and eco-friendly household goods on the market.</text>
+             </div>
+             <div  ng-mouseenter="searchControl.showFurnitureByCatgMenu = false; searchControl.showBabyKidsMenu = false; searchControl.showRetailerMenu = false" class="home-title">
+               <span><a href="#">cabin vista</a><span>
+             </div>
+
+             <div class="searchbar" ng-mouseenter="searchControl.showBabyKidsMenu = false;">
+               <form ng-submit="searchControl.searchBarQueryFromHome()">
+                 <input ng-model="searchControl.userQueryFromHome" type="text" placeholder="Type to search furniture type, product, brand, etc.">
+               </form>
+             </div>
+             <div class="navigation-bar">
+               <span><a href="#">Home</a></span>
+               <span ng-mouseenter="searchControl.showBabyKidsCatgMenu = true; searchControl.showBabyKidsMenu = false">
+                 <a>Category</a>
+               </span>
+
+
+
+               <span><a ng-mouseenter="searchControl.showBabyKidsMenu = true; searchControl.showBabyKidsCatgMenu = false">Retailers</a></span>
+               <span ng-click="searchControl.toRelevantArticles()" ng-mouseenter="searchControl.showBabyKidsMenu = false; searchControl.showBabyKidsCatgMenu = false">
+                <a> Info</a>
+               </span>
+            </div>
+
+          <!--Baby & Kids Menu reveal on hover-->
+          <div class="mega-menu-babykids" ng-show="searchControl.showBabyKidsMenu" ng-mouseleave="searchControl.showBabyKidsMenu = false">
+
+            <p><a ng-click="searchControl.searchFromMenu(searchControl.furnitureMenuOptns.searchByRetailer.potteryBarnKids)">Pottery Barn Kids</a></p>
+            <p><a ng-click="searchControl.searchFromMenu(searchControl.furnitureMenuOptns.searchByRetailer.pbTeen)">Pbteen</a></p>
+            <p><a ng-click="searchControl.searchFromMenu(searchControl.furnitureMenuOptns.searchByRetailer.davinciBaby)">Davinci Baby</a></p>
+
+          </div>
+
+          <div class="mega-menu-babykids-catg" ng-show="searchControl.showBabyKidsCatgMenu" ng-mouseleave="searchControl.showBabyKidsCatgMenu = false">
+
+            <p><a ng-click="searchControl.searchFromMenu(searchControl.furnitureMenuOptns.kidsFurniture.bedsAndCribs)">Beds & Cribs</a></p>
+            <p><a ng-click="searchControl.searchFromMenu(searchControl.furnitureMenuOptns.kidsFurniture.dressers)">Dressers</a></p>
+            <p><a ng-click="searchControl.searchFromMenu(searchControl.furnitureMenuOptns.kidsFurniture.nightstands)">Nightstands</a></p>
+              <p><a ng-click="searchControl.searchFromMenu(searchControl.furnitureMenuOptns.kidsFurniture.desks)">Desks</a></p>
+
+          </div>
+
+
+
+      <!----End of Header, Menus, SearchBar------>
+
+      <!---Sidebar--->
+                  <div ng-show="searchControl.revealSearchBarResults || searchControl.revealMenuSearchResults || searchControl.clientSearchbyOneRetailer" class="side-bar">
+                    <ul ng-hide="searchControl.clientSearchbyOneRetailer">
+                      <p>Filter by Retailer</p>
+                      <li data-ng-repeat="site in searchControl.siteNames">
+                        <input ng-click="searchControl.narrowSearchByBrand(site)" id="checkbox1" type="checkbox">
+                        <label ng-class="{'highlight-green': site.highlighted}">{{site.key}} ({{site.doc_count}})</label>
+                      </li>
+                    </ul>
+
+                    <ul>
+                      <p>Filter By Price</p>
+                      <li>
+                        <input ng-click="searchControl.filterPriceRange(searchControl.priceRangeOptions[0])" class="checkboxoption" type="checkbox">
+                        <label for="checkboxoption">$500 and Under ({{searchControl.priceRanges[0].doc_count}})</label>
+                      </li>
+                      <li>
+                        <input ng-click="searchControl.filterPriceRange(searchControl.priceRangeOptions[1])" class="checkboxoption"  type="checkbox">
+                        <label for="checkboxoption">$500 - $1000 ({{searchControl.priceRanges[1].doc_count}})</label>
+                      </li>
+                      <li>
+                        <input ng-click="searchControl.filterPriceRange(searchControl.priceRangeOptions[2])" class="checkboxoption"  type="checkbox">
+                        <label for="checkboxoption">$1000 - $1500 ({{searchControl.priceRanges[2].doc_count}})</label>
+                      </li>
+                      <li>
+                        <input ng-click="searchControl.filterPriceRange(searchControl.priceRangeOptions[3])" class="checkboxoption"  type="checkbox">
+                        <label for="checkboxoption">$1500 - $3000 ({{searchControl.priceRanges[3].doc_count}})</label>
+                      </li>
+                      <li>
+                        <input ng-click="searchControl.filterPriceRange(searchControl.priceRangeOptions[4])" class="checkboxoption"  type="checkbox">
+                        <label for="checkboxoption">$3000 and Over ({{searchControl.priceRanges[4].doc_count}})</label>
+                      </li>
+                    </ul>
+                  </div>
+        <!--End of Sidebar-->
+
+
+        <!-----Product Results---->
+        <div ng-show="searchControl.revealSearchBarResults || searchControl.revealMenuSearchResults" class="shop-baby-and-kids-header-test">
+          <text style="color:#0078ee">Baby & </text><text style="color:red">K</t><t style="color:green">i</text><text style="color:#d66a00">d</text><text style="color:blue">s</text><text style="color:#0078ee"> Furniture</text>
+          </div>
+
+          <div class="product-results">
+
+            <!----Results found for Menu Options--->
+            <p ng-show="searchControl.revealMenuSearchResults" class="phrase-results-menu-catg">
+                {{searchControl.furnitureDescript}} - {{searchControl.furnitureTitle}}
+                <br>
+                <p ng-show="searchControl.revealMenuSearchResults">{{searchControl.totalResultsFound.value}} results found</p>
+            </p>
+            <!----Results found for search bar request---->
+            <p ng-show="searchControl.revealSearchBarResults && !searchControl.revealMenuSearchResults" class="phrase-results-searchbar">
+            {{searchControl.totalResultsFound}} results found for '{{ searchControl.searchResultValue }}'
+          </p>
+
+
+          <hr ng-show="searchControl.revealSearchBarResults || searchControl.revealMenuSearchResults"/>
+              <div ng-show="searchControl.revealSearchBarResults || searchControl.revealMenuSearchResults" class="price-sorting">
+                  <span class="price-sorting-option is-active" ng-click="searchControl.sortThePrice(undefined)"><a>Best Match</a></span>
+                  <span class="price-sorting-option" ng-click="searchControl.sortThePrice('asc')"><a>Low to High</a></span>
+                  <span class="price-sorting-option" ng-click="searchControl.sortThePrice('desc')"><a>High to Low</a></span>
+              </div>
+
+          <!---  PAGE LOADING CSS --->
+         <div ng-class="{'spinner':searchControl.blurPageAddSpinner}"></div>
+
+
+              <div ng-class="{'page-blur':searchControl.blurPageAddSpinner}" class="product-card-results">
+                <div data-ng-repeat="results in searchControl.searchResults" class="product-card">
+                  <a ng-href="{{results._source.producturl}}" target="_blank"><div style="background-image:url({{results._source.image}})" id="test-product-image" alt="product image"/></a>
+                  <div class="test-product-section">
+                  <div class="test-product-title"><a ng-href="{{results._source.producturl}}" target="_blank">{{results._source.productname}}</a></div>
+                    <div class="test-store-name">at {{ results._source.sitename }}</div>
+                    <p class="test-certification" title="{{results._source.certifications[0].title}}" target="_blank">
+                      <a ng-href="{{results._source.certifications[0].url}}" target="_blank">{{results._source.certifications[0].certification}}</a>
+                    </p>
+                  </div>
+                   <div class="test-product-price">${{results._source.price[0]}} <t ng-show="{{results._source.price[1]}}">- ${{results._source.price[1]}}</t></div>
+                </div>
+              </div>
+
+              <div ng-class="{'bottom-spinner': searchControl.addBottomPageSpinner}"></div>
+             <div ng-show="searchControl.allResultsLoaded" class="test-content-finished">- Content Finished -</div>
+
+
+          </div>
+
+
+
+   </html>

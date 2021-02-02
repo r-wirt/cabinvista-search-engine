@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+  <html>
+<!--Header, Menus, SearchBar------>
+      <div class="top-descript">
+        <text>A sustainable furniture search engine, dedicated to identifying healthy and eco-friendly household goods on the market.</text>
+       </div>
+       <div class="home-title"  ng-mouseenter="homeControl.showFurnitureByCatgMenu = false; homeControl.showBabyKidsMenu = false; homeControl.showRetailerMenu = false">
+         <span class="animated fadeIn">cabin vista<span>
+       </div>
+       <div class="searchbar" ng-mouseenter="homeControl.showFurnitureByCatgMenu = false; homeControl.showBabyKidsMenu = false; homeControl.showRetailerMenu = false">
+         <form ng-submit="homeControl.searchBarQueryFromHome()">
+           <input ng-model="homeControl.userQueryFromHome" type="text" placeholder="Type to search furniture type, product, brand, etc.">
+         </form>
+       </div>
+       <div class="navigation-bar">
+         <span ng-mouseenter="homeControl.showFurnitureByCatgMenu = true; homeControl.showBabyKidsMenu = false; homeControl.showRetailerMenu = false"><a>Category</a></span>
+         <span ng-mouseenter="homeControl.showRetailerMenu = true; homeControl.showFurnitureByCatgMenu = false; homeControl.showBabyKidsMenu = false"><a>Retailer</a></span>
+         <span ng-mouseenter="homeControl.showBabyKidsMenu = true; homeControl.showFurnitureByCatgMenu = false; homeControl.showRetailerMenu = false"
+               ng-click="homeControl.switchToKidsFurniture(homeControl.furnitureMenuOptns.kidsFurniture.allKidsFurniture)"><a>Shop Baby & Kids</a></span>
+         <span ng-click="homeControl.toRelevantArticles()" ng-mouseenter="homeControl.showFurnitureByCatgMenu = false; homeControl.showBabyKidsMenu = false; homeControl.showRetailerMenu = false"><a>Info</a></span>
+      </div>
+
+      <div class="mega-menu-catg" ng-show="homeControl.showFurnitureByCatgMenu" ng-mouseleave="homeControl.showFurnitureByCatgMenu= false">
+        <div class="menu-bedroom">
+            <span><a ng-click="homeControl.searchMenuFromHome(homeControl.furnitureMenuOptns.bedroom.allBedroom)">Bedroom</a></span>
+            <p><a ng-click="homeControl.searchMenuFromHome(homeControl.furnitureMenuOptns.bedroom.beds)">Beds</a></p>
+            <p><a ng-click="homeControl.searchMenuFromHome(homeControl.furnitureMenuOptns.bedroom.dressers)">Dressers & Armoires</a></p>
+            <p><a ng-click="homeControl.searchMenuFromHome(homeControl.furnitureMenuOptns.bedroom.nightstands)">Nightstands</a></p>
+            <p><a ng-click="homeControl.searchMenuFromHome(homeControl.furnitureMenuOptns.bedroom.desks)">Desks</a></p>
+        </div>
+
+        <div class="menu-livingroom">
+          <span><a ng-click="homeControl.searchMenuFromHome(homeControl.furnitureMenuOptns.livingroom.allLivingroom)">Living Room</a></span>
+          <p><a ng-click="homeControl.searchMenuFromHome(homeControl.furnitureMenuOptns.livingroom.sofasAndSectionals)">Sofas & Sectionals</a></p>
+          <p><a ng-click="homeControl.searchMenuFromHome(homeControl.furnitureMenuOptns.livingroom.coffeeTables)">Coffee Tables</a></p>
+          <p><a ng-click="homeControl.searchMenuFromHome(homeControl.furnitureMenuOptns.livingroom.accentChairsAndOttomans)">Accent Chairs & Ottomans</a></p>
+        </div>
+
+        <div class="menu-kitchen">
+          <span><a ng-click="homeControl.searchMenuFromHome(homeControl.furnitureMenuOptns.dining.allDining)">Dining & Kitchen</a></span>
+          <p><a ng-click="homeControl.searchMenuFromHome(homeControl.furnitureMenuOptns.dining.allDining)">All Dining & Kitchen</a></p>
+        </div>
+
+        <div class="menu-storage">
+          <span><a ng-click="homeControl.searchMenuFromHome(homeControl.furnitureMenuOptns.storage.allStorage)">Storage</a></span>
+          <p><a ng-click="homeControl.searchMenuFromHome(homeControl.furnitureMenuOptns.storage.mediaConsoles)">Media Consoles</a></p>
+          <p><a ng-click="homeControl.searchMenuFromHome(homeControl.furnitureMenuOptns.storage.shelves)">Shelves</a></p>
+          <p><a ng-click="homeControl.searchMenuFromHome(homeControl.furnitureMenuOptns.storage.cabinets)">Cabinets</a></p>
+        </div>
+
+        <div class="menu-outdoor">
+          <span><a ng-click="homeControl.searchMenuFromHome(homeControl.furnitureMenuOptns.outdoor.allOutdoor)">Outdoor</a></span>
+          <p><a ng-click="homeControl.searchMenuFromHome(homeControl.furnitureMenuOptns.outdoor.allOutdoor)">Outdoor Tables & Chairs</a></p>
+        </div>
+      </div>
+
+    <div class="mega-menu-babykids" ng-show="homeControl.showBabyKidsMenu" ng-mouseleave="homeControl.showBabyKidsMenu = false">
+      <span><a ng-click="homeControl.switchToKidsFurniture(homeControl.furnitureMenuOptns.kidsFurniture.allKidsFurniture)">All Baby & Kids Furniture</a></span>
+      <p><a ng-click="homeControl.switchToKidsFurniture(homeControl.furnitureMenuOptns.kidsFurniture.bedsAndCribs)">Beds & Cribs</a></p>
+      <p><a ng-click="homeControl.switchToKidsFurniture(homeControl.furnitureMenuOptns.kidsFurniture.dressers)">Dressers</a></p>
+      <p><a ng-click="homeControl.switchToKidsFurniture(homeControl.furnitureMenuOptns.kidsFurniture.nightstands)">Nighstands</a></p>
+      <p><a ng-click="homeControl.switchToKidsFurniture(homeControl.furnitureMenuOptns.kidsFurniture.desks)">Desks</a></p>
+    </div>
+
+    <div class="mega-menu-retailer" ng-show="homeControl.showRetailerMenu" ng-mouseleave="homeControl.showRetailerMenu=false">
+      <div>
+       <p><a ng-click="homeControl.searchMenuFromHome(homeControl.furnitureMenuOptns.searchByRetailer.westElm)">west elm</a></p>
+       <p><a ng-click="homeControl.searchMenuFromHome(homeControl.furnitureMenuOptns.searchByRetailer.potteryBarn)">Pottery Barn</a></p>
+       <p><a ng-click="homeControl.switchToKidsFurniture(homeControl.furnitureMenuOptns.searchByRetailer.potteryBarnKids)">Pottery Barn Kids</a></p>
+     </div>
+     <div>
+       <p><a ng-click="homeControl.switchToKidsFurniture(homeControl.furnitureMenuOptns.searchByRetailer.pbTeen)">Pbteen</a></p>
+       <p><a ng-click="homeControl.searchMenuFromHome(homeControl.furnitureMenuOptns.searchByRetailer.williamsSonoma)">Williams Sonoma</a></p>
+       <p><a ng-click="homeControl.searchMenuFromHome(homeControl.furnitureMenuOptns.searchByRetailer.medley)">medley</a></p>
+     </div>
+     <div>
+       <p><a ng-click="homeControl.searchMenuFromHome(homeControl.furnitureMenuOptns.searchByRetailer.aptTwoB)">apt2b</a></p>
+       <p><a ng-click="homeControl.switchToKidsFurniture(homeControl.furnitureMenuOptns.searchByRetailer.davinciBaby)">Davinci Baby</a></p>
+       <p><a ng-click="homeControl.searchMenuFromHome(homeControl.furnitureMenuOptns.searchByRetailer.oneKingsLane)">One Kings Lane</a></p>
+     </div>
+    </div>
+
+
+<!--End of Header, Menus, SearchBar------>
+
+
+      <div class="eco-intro">
+        <p>Eco friendly furniture offers materials that are manufactured with the goal of considering a consumer's health,
+        and the responsible use of the earth’s resources. This involves using wood from responsibly managed forests
+        to preserve the local habitat, and excluding harmful chemicals and pollutants from products
+        in order to provide a healthier indoor environment.</p>
+    </div>
+
+      <div class="define-certification">
+      <span>Eco-Furniture Certifications</span>
+      <div class="two-certifis animated fadeIn">
+        <div class="define-grngrd">
+            <span>GREENGUARD Certification</span>
+          <br>
+          <p>
+          UL Environment's GREENGUARD Certification program helps manufacturers create--and helps buyers identify and
+          trust--interior products and materials that have low chemical emissions, improving the quality of the air in
+          which the products are used. All certified products must meet stringent emissions standards based on established
+          chemical exposure criteria. - GREENGUARD Certification from UL Environment, <a href="http://greenguard.org/en/index.aspx?mobile=true" target="_blank"><i>Source</i></a></p>
+        </div>
+        <div class="define-fsc ">
+             <span>FSC Certification</span>
+          <br>
+         <p>The Forest Stewardship Council was created in 1993 to halt deforestation and safeguard forest ecosystems.
+          A nonprofit organization, FSC sets voluntary standards by which forests are independently certified to help
+          customers identify and purchase products from responsibly managed forests. -- Products with the FSC logo
+          directly support responsible forest management and help protect forests for future generations.
+          - The Forest Stewardship Council (FSC®), <a href="https://us.fsc.org/preview.fsc-overview.a-625.pdf" target="_blank"><i>Source</i></a></p>
+        </div>
+      </div>
+    </div>
+    <div class="retailers">
+      <p>Retailers with Eco-Furniture</p>
+
+      <span><a ng-click="homeControl.searchMenuFromHome(homeControl.furnitureMenuOptns.searchByRetailer.potteryBarn)">Pottery Barn</a></span>
+      <span><a ng-click="homeControl.switchToKidsFurniture(homeControl.furnitureMenuOptns.searchByRetailer.potteryBarnKids)">Pottery Barn Kids</a></span>
+      <span><a ng-click="homeControl.switchToKidsFurniture(homeControl.furnitureMenuOptns.searchByRetailer.pbTeen)">Pbteen</a></span>
+      <span><a ng-click="homeControl.searchMenuFromHome(homeControl.furnitureMenuOptns.searchByRetailer.westElm)">West Elm</a></span>
+      <span><a ng-click="homeControl.searchMenuFromHome(homeControl.furnitureMenuOptns.searchByRetailer.medley)">medley</a></span>
+      <span><a ng-click="homeControl.searchMenuFromHome(homeControl.furnitureMenuOptns.searchByRetailer.aptTwoB)">apt2b</a></span>
+      <span><a ng-click="homeControl.searchMenuFromHome(homeControl.furnitureMenuOptns.searchByRetailer.oneKingsLane)">One Kings Lane</a></span>
+      <span><a ng-click="homeControl.searchMenuFromHome(homeControl.furnitureMenuOptns.searchByRetailer.williamsSonoma)">Williams Sonoma</a></span>
+      <span><a ng-click="homeControl.switchToKidsFurniture(homeControl.furnitureMenuOptns.searchByRetailer.davinciBaby)">Davinci Baby</a></span>
+
+    </div>
+    <div class="fact-grngrd">
+      <span>GREENGUARD Certification</span>
+     <p>“Indoor air quality (IAQ) is closely tied to health, and is therefore recognized as an important concern in homes,
+      schools, healthcare environments and commercial spaces. Volatile organic compound (VOC) emissions
+      from building materials and furnishings is a major source of indoor air pollution. GREENGUARD
+      Certification has been widely adopted as a trusted standard for low-emitting products.”
+    </p>
+    </div>
+
+    <div class="fact-fsc">
+      <span>FSC Certification</span>
+     <p>“People depend on forests to live. They filter the water we drink and the air we breathe. Worldwide, 1.6 billion people rely on forests for their livelihoods, including food, clothing, or shelter. Deforestation and forest degradation is the second leading cause of carbon pollution,
+     causing 20% of total greenhouse gas emissions. By creating demand for products from responsibly managed forests, FSC is helping protect
+     forests for future generations.”
+     </p>
+    </div>
+<!---Shop by Category Preview --->
+    <div class="shop-by-category">
+      <p class="shop-by-category-title"><a ng-click="homeControl.searchMenuFromHome(homeControl.furnitureMenuOptns.livingroom.allLivingroom)">Shop Living Room</a></p>
+      <div class="shop-preview">
+
+         <div data-ng-repeat="previews in homeControl.livingRoomPrev" class="product-card">
+           <div style="background-image:url({{previews._source.image}})" id="test-product-image" alt="product image"/>
+           <div class="test-product-section">
+           <div class="test-product-title"><a ng-href="{{previews._source.producturl}}" target="_blank">{{previews._source.productname}}</a></div>
+             <div class="test-store-name">at  {{previews._source.sitename}}</div>
+             <p class="test-certification" title="{{previews._source.certifications[0].title}}">
+               <a ng-href="{{previews._source.certifications[0].url}}" target="_blank">
+               {{previews._source.certifications[0].certification}}
+            </a>
+             </p>
+           </div>
+            <div class="test-product-price">${{previews._source.lowestprice}}</div>
+
+         </div>
+      </div>
+
+
+      <p class="shop-by-category-title"><a ng-click="homeControl.searchMenuFromHome(homeControl.furnitureMenuOptns.bedroom.allBedroom)">Shop Bedroom Furniture</a></p>
+      <div class="shop-preview">
+         <div data-ng-repeat="previews in homeControl.bedRoomPrev" class="product-card">
+           <div style="background-image:url({{previews._source.image}})" id="test-product-image" alt="product image"/>
+           <div class="test-product-section">
+           <div class="test-product-title"><a ng-href="{{previews._source.producturl}}" target="_blank">{{previews._source.productname}}</a></div>
+             <div class="test-store-name">at  {{previews._source.sitename}}</div>
+             <p class="test-certification" title="{{previews._source.certifications[0].title}}">
+               <a ng-href="{{previews._source.certifications[0].url}}" target="_blank">
+               {{previews._source.certifications[0].certification}}
+            </a>
+             </p>
+           </div>
+            <div class="test-product-price">${{previews._source.lowestprice}}</div>
+
+         </div>
+      </div>
+      <p class="shop-by-category-title"><a ng-click="homeControl.switchToKidsFurniture(homeControl.furnitureMenuOptns.kidsFurniture.allKidsFurniture)">Shop Baby & Kids Furniture</a></p>
+      <div class="shop-preview">
+         <div data-ng-repeat="previews in homeControl.babyAndKidsPrev" class="product-card">
+           <div style="background-image:url({{previews._source.image}})" id="test-product-image" alt="product image"/>
+           <div class="test-product-section">
+           <div class="test-product-title"><a ng-href="{{previews._source.producturl}}" target="_blank">{{previews._source.productname}}</a></div>
+             <div class="test-store-name">at  {{previews._source.sitename}}</div>
+             <p class="test-certification" title="{{previews._source.certifications[0].title}}">
+               <a ng-href="{{previews._source.certifications[0].url}}" target="_blank">
+               {{previews._source.certifications[0].certification}}
+            </a>
+             </p>
+           </div>
+            <div class="test-product-price">${{previews._source.lowestprice}}</div>
+
+         </div>
+      </div>
+
+      <p class="shop-by-category-title"><a ng-click="homeControl.searchMenuFromHome(homeControl.furnitureMenuOptns.dining.allDining)">Shop Dining & Kitchen Furniture</a></p>
+      <div class="shop-preview">
+         <div data-ng-repeat="previews in homeControl.dineAndKitchenPrev" class="product-card">
+           <div style="background-image:url({{previews._source.image}})" id="test-product-image" alt="product image"/>
+           <div class="test-product-section">
+           <div class="test-product-title"><a ng-href="{{previews._source.producturl}}" target="_blank">{{previews._source.productname}}</a></div>
+             <div class="test-store-name">at  {{previews._source.sitename}}</div>
+             <p class="test-certification" title="{{previews._source.certifications[0].title}}">
+               <a ng-href="{{previews._source.certifications[0].url}}" target="_blank">
+               {{previews._source.certifications[0].certification}}
+            </a>
+             </p>
+           </div>
+            <div class="test-product-price">${{previews._source.lowestprice}}</div>
+
+         </div>
+      </div>
+
+    </div>
+    <!---Shop by Category Preview --->
+    </html>

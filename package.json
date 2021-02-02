@@ -1,0 +1,17 @@
+{
+  "name": "fun.1",
+  "version": "1.0.0",
+  "description": "Fun server",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "T.W.",
+  "license": "ISC",
+  "dependencies": {
+    "elasticsearch": "^14.1.0",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6"
+  }
+}
